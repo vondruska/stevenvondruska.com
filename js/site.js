@@ -1,4 +1,3 @@
-
 $(document).ready(function() {
     
     $('body').removeClass('nojs');
@@ -13,19 +12,10 @@ $(document).ready(function() {
     
     $(window).load(function() {
         $('#content, .footer').fadeIn(450);
-          
-          $(['/img/socialnetworkshover.png']).each(function(){
-            $('<img/>')[0].src = this;
-          });    
     });
-    
-    $(document).pngFix({blankgif: '/img/blank.gif'}); 
-    
-    
     
    $.backstretch("/img/bkg.jpg", {speed:450, height: 864, width: 1300}, function() {
        $(this).append('<div id=\"raster\"></div>');
-       $('#raster').pngFix({blankgif: '/img/blank.gif'}); 
    });
    
     try {
