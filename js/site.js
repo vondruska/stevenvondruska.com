@@ -1,58 +1,39 @@
-$(document).ready(function() {
-    
-    $('body').removeClass('nojs');
-    
-    
-    $('a').click(function(e) {
+var stevon = {
+    loaded: function() {
+        document.querySelectorAll("a").forEach(function(element, index, array) {
+			element.addEventListener("click", stevon.click);
+		});
+
         try {
-            _gat._getTrackerByName()._trackEvent('Click', this.title);
+            konami = new Konami();
+            konami.code = function() {
+                stevon.sendEvent('Easter Egg', 'Nyan Cat');
+                document.body.classList.add('nyancat');
+                var audio = new Audio('/media/nyanloop.mp3');
+                audio.volume = .5;
+                audio.loop = true;
+                audio.play();
+            };
+
+            konami.load();
+        } catch (err) { // in the event konami doesn't load 
+            console.warn("Konami failed");
         }
-        catch(e) {}
-    });
-    
-    $(window).load(function() {
-        $('#content, .footer').fadeIn(450);
-    });
-    
-   $.backstretch("/img/bkg.jpg", {speed:450, height: 864, width: 1300}, function() {
-       $(this).append('<div id=\"raster\"></div>');
-   });
-   
-    try {
-    konami = new Konami();
-    konami.code = function() {
-         _gat._getTrackerByName()._trackEvent('Easter Egg', "Nyan Cat");
-        $.getScript('/js/soundmanager2-nodebug-jsmin.js', function() {
-            
-            $.backstretch("/img/nyancat.gif", {speed:0, height: 400, width: 400});
-            
-           
-                soundManager.url = '/swf/';
-                soundManager.flashVersion = 9;
-                soundManager.useFlashBlock = false;
-                soundManager.onready(function() {
-                  soundManager.createSound({
-                    id: 'loop',
-                    url: '/media/nyanloop.mp3',
-                    autoLoad: true,
-                    autoPlay: true,
-                    loops: 9999999,
-                    onload: function() {
-                    },
-                    onfinish: function() {
-                    },
-                    volume: 50
-                  });
-                });
-
-                
-    });
-    };
-
-    konami.load();
+    },
+    click: function(e) {
+        stevon.sendEvent('Click', this.title);
+    },
+    isAnalyticsLoaded: function() {
+        return typeof ga !== 'undefined';
+    },
+    sendEvent: function(category, action) {
+        if (stevon.isAnalyticsLoaded()) {
+            ga('send', 'event', category, action);
+        } else {
+            console.warn('Analytics failed');
+        }
     }
-    catch(err) { // in the event konami doesn't load 
-    
-    }
+}
 
-});
+
+document.addEventListener("DOMContentLoaded", stevon.loaded);
