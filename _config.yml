@@ -1,0 +1,12 @@
+remote_theme: samarsault/plainwhite-jekyll
+
+plainwhite:
+  name: Steven Vondruska
+  portfolio_image: "/assets/img/steven.jpg"
+  
+  social_links:
+    github: vondruska
+    linkedIn: in/stevenvondruska
+  show_show_excerpts: true
+  condensed_mobile:
+    - post
