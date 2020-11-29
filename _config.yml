@@ -7,8 +7,8 @@ plainwhite:
   social_links:
     github: vondruska
     linkedIn: in/stevenvondruska
-  show_show_excerpts: true
+
   condensed_mobile:
     - post
 
-  show_excerpts: true
+show_excerpts: true
