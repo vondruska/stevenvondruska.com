@@ -10,3 +10,5 @@ plainwhite:
   show_show_excerpts: true
   condensed_mobile:
     - post
+
+  show_excerpts: true
