@@ -13,4 +13,4 @@ plainwhite:
 
 show_excerpts: true
 
-permalink: none
+permalink: /:categories/:title
