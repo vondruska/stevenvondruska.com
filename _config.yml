@@ -12,3 +12,5 @@ plainwhite:
     - post
 
 show_excerpts: true
+
+permalink: none
