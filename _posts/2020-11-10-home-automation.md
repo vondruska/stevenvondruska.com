@@ -52,4 +52,4 @@ The configuration used to be under source control and deployed via GitHub Action
 
 Tempy is a temperature monitor that I built using an ESP8266 and a DS18B20 temperature gauge. Reports data via MQTT over WiFi.
 
-Read about that project at https://github.com/vondruska/tempy.
+Read about that project at [https://github.com/vondruska/tempy](https://github.com/vondruska/tempy).
