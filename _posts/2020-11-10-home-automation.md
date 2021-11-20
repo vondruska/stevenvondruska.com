@@ -15,25 +15,24 @@ That being said, I don't think the cloud is a bad thing. It typically provides c
 ##### Note: this is likely not an exhaustive list
 
 1. [Philips Hue](https://www.meethue.com)
-2. [Ecobee 3](https://www.ecobee.com) with multiple [room sensors](https://www.ecobee.com/room-sensors/)
-3. [Google Home and Google Home Mini](https://www.google.com/home)
-4. [Aeotec Z-Stick Gen5](https://aeotec.com/z-wave-usb-stick)
-5. Aeotec Z-Wave dry contact sensor
-6. Various Z-Wave door sensor(s)
-7. [2GIG door/window/motion sensors](https://www.2gig.com/)
-8. [Raspberry Pi 3 B+](https://www.raspberrypi.org/products/raspberry-pi-3-model-b-plus/)
-9. [RTL-SDR Blog V3 R820T2 RTL2832U](https://www.amazon.com/gp/product/B011HVUEME)
-10. [Tempy](#tempy)
-11. [OpenGarage](https://opengarage.io/)
-12. GE Z-Wave Dimmer Switch
-13. GE Z-Wave Switch
-14. [Sonoff S20](https://www.itead.cc/smart-socket.html) flashed with [Sonoff-Tasmota](https://github.com/arendst/Sonoff-Tasmota)
-15. [WiZ Light Bulbs](https://www.wizconnected.com/en-US/consumer/)
-16. Unifi Protect G4 Doorbell
+1. [Ecobee 3](https://www.ecobee.com) with multiple [room sensors](https://www.ecobee.com/room-sensors/)
+1. [Google Home and Google Home Mini](https://www.google.com/home)
+1. [Aeotec Z-Stick Gen5](https://aeotec.com/z-wave-usb-stick)
+1. Aeotec Z-Wave dry contact sensor
+1. Various Z-Wave door sensor(s)
+1. [Raspberry Pi 3 B+](https://www.raspberrypi.org/products/raspberry-pi-3-model-b-plus/)
+1. [~~RTL-SDR Blog V3 R820T2 RTL2832U~~](https://www.amazon.com/gp/product/B011HVUEME) *currently unused*
+1. [Tempy](#tempy)
+1. [OpenGarage](https://opengarage.io/)
+1. GE Z-Wave Dimmer Switch
+1. GE Z-Wave Switch
+1. [Sonoff S20](https://www.itead.cc/smart-socket.html) flashed with [Sonoff-Tasmota](https://github.com/arendst/Sonoff-Tasmota)
+1. [WiZ Light Bulbs](https://www.wizconnected.com/en-US/consumer/)
+1. Unifi Protect G4 Doorbell
 
 ## Services used
 
-Here are the services (and some hardware) actively running to make it all works:
+Here are the services (and some hardware) actively running to make it all work:
 
 ### Docker
 
@@ -49,17 +48,8 @@ The configuration used to be under source control and deployed via GitHub Action
 
 [MQTT](http://mqtt.org) broker. This allows many devices like the 2GIG sensors, Sonoff outlets and freezer temperature to push messages to subscribers, like Home Assistant, in a decoupled way.
 
-### [345securitymqtt](https://github.com/vondruska/345securitymqtt)
-
-Uses the [RTL-SDR USB dongle](https://www.amazon.com/gp/product/B011HVUEME) to detect and push 2GIG sensor events (door open/close, motion detector, etc) into MQTT.
-
-More information at https://github.com/vondruska/345securitymqtt
-
 ### [Tempy](https://github.com/vondruska/tempy)
 
 Tempy is a temperature monitor that I built using an ESP8266 and a DS18B20 temperature gauge. Reports data via MQTT over WiFi.
 
 Read about that project at https://github.com/vondruska/tempy.
-
-### [HomeBridge](https://github.com/homebridge/homebridge)
-We are an Android household so there isn't much reason for HomeKit. Yet thanks to [unifi-protect-homebridge](https://github.com/hjdhjd/homebridge-unifi-protect), Unifi Protect events are available in Home Assistant.
